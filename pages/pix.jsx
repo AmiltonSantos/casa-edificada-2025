@@ -3,15 +3,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Pix = () => {
-  // 00020101021126650014br.gov.bcb.pix0114+556299608300402251* - Lote Casa Edificada 5204000053039865406100.005802BR5925ALEXSANDRA RODRIGUES FREI6009SAO PAULO622905251HWT4R5A4ARYXTBWMHK9SW6A4630414C6
-  const numeroPagamento = '00020101021126360014br.gov.bcb.pix0114+55629960830045204000053039865406150.005802BR5925ALEXSANDRA RODRIGUES FREI6009SAO PAULO622905251J4J7QQJFDGMW1CY50BDRPFDQ6304D06E';
+  const numeroPagamento = '00020126360014br.gov.bcb.pix0114+55629925291275204000053039865802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CasaEdificada630482B9';
 
   const toastSuccess = () => toast.success('Pix cópiado com sucesso!');
 
   return (
     <div className="pixContainer">
       <div className="divPix" onClick={toastSuccess}>
-        <p>Pix Copia e Cola: <b>(62) 99608-3004</b></p>
+        <p>Pix Copia e Cola: <b>(62) 99252-9127</b></p>
         <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPagamento) }} />
       </div>
       <br></br>

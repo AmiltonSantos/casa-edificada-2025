@@ -7,10 +7,10 @@ const Grupowhatsapp = () => {
 
   const toastSuccess = () => toast.info('Url cópiada com sucesso!');
 
-  const numeroGrupo = 'http://wa.me/556294529444';
+  const numeroGrupo = 'http://wa.me/5562994529444';
 
   function toggleModal() {
-    window.open('https://wa.me/556294529444', '_blank');
+    window.open('https://wa.me/5562994529444', '_blank');
   }
 
   return (
@@ -45,7 +45,7 @@ const Grupowhatsapp = () => {
             borderRadius: '4px',
             textAlign: 'center'
           }} 
-          value='http://wa.me/556294529444'
+          value='http://wa.me/5562994529444'
         />
          <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroGrupo) }} />
       </div>
