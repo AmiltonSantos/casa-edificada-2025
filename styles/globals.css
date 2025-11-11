@@ -173,8 +173,7 @@ a {
   padding-right: 15px;
 }
 .divPix {
-  display: flex;
-  justify-content: space-evenly;
+  display: contents;
 }
 
 .corIconPix {

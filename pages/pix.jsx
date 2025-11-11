@@ -22,14 +22,14 @@ const Pix = () => {
         draggable
         pauseOnHover
       />
-     
+
       <hr />
 
       <br></br>
 
-      <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPagamento) }} />
       <div className="divPix" onClick={toastSuccess}>
-        <p>Pix Copia e Cola: <b> (62) 99252-9127 | LIDIANE SILVA CAIXA ECONOMICA</b></p>
+        <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPagamento) }} />
+        <p>Pix Copia e Cola: <b> (62) 99252-9127 | LIDIANE SILVA | CAIXA ECONOMICA</b></p>
       </div>
 
       <br></br>
@@ -46,6 +46,8 @@ const Pix = () => {
         }}
         defaultValue='00020126360014br.gov.bcb.pix0114+55629925291275204000053039865802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CasaEdificada630482B9'
       />
+
+      <br></br>
 
     </div>
   );
