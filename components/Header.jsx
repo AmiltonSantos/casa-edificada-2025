@@ -107,6 +107,15 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
       const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
       const segundos = String(dataAtual.getSeconds()).padStart(2, '0');
 
+      const checkResponse = await fetch(`https://sheetdb.io/api/v1/0rik755okz6jw/search?whatsapp=${whatsapp}`);
+      const existing = await checkResponse.json();
+
+      if (existing.length > 0) {
+        setError("ESTE NÚMERO DE WHATSAPP JÁ ESTÁ CADASTRADO!");
+        setLoading(false);
+        return; // interrompe o fluxo
+      }
+
       const response = await fetch("https://sheetdb.io/api/v1/0rik755okz6jw", {
         method: 'POST',
         mode: 'cors',
@@ -173,13 +182,14 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
           onRequestClose={closeModal}
           ariaHideApp={false}
         >
-          {loading && <LoadingComponent />}
+          {loading && <LoadingComponent />}          
           <div className="modalContainer">
             <h3 className="loginHeader">Inscreva-se para o Evento</h3>
             <p className="newCustomer">
               13 de Dezembro  aguarde...!
             </p>
             <hr />
+            {error && <p style={{ color: "white", fontWeight: "bolder" }} className="errorMessage">{error}</p>}
             <form className="loginForm" onSubmit={handleSubmit}>
               <label>Casal</label> <br />
               <input
@@ -225,7 +235,6 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
               <p className="welcomeMessage">{registerMessage}</p>
             )}
 
-            {error && <p className="errorMessage">{error}</p>}
             {successMessage && (
               <p className="welcomeMessage">{successMessage}</p>
             )}
