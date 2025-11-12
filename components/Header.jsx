@@ -47,10 +47,6 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
   const [whatsapp, setWhatsapp] = useState("");
   const [igreja, setIgreja] = useState("");
 
-  // Success message
-  const [successMessage, setSuccessMessage] = useState(null);
-  const [registerMessage, setregisterMessage] = useState(null);
-
   // Error
   const [error, setError] = useState("");
 
@@ -138,12 +134,9 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
       const data = await response.json();
 
       if (response.ok) {
-
-        setSuccessMessage(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`); //usado no https://sheetdb.io
-        //setSuccessMessage(data[0].name + ' Cadastrado com sucesso!'); //usado no https://sheet.best/api/sheets 
-        setregisterMessage(
-          `Cadastrado com sucesso!`
-        );
+        toast.success(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`, {
+          style: { backgroundColor: "#036b52", color: "#fff" },
+        });
 
         setTimeout(() => closeModal(), setTimeout(() => toggleModal(), 200));
 
@@ -166,144 +159,152 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
   };
 
   return (
-    <div className="headerContainer">
-      <div className="logoContainer">
-        <Link href="/">
-          <img src="/logo.png" className="logo" alt="" />
-        </Link>
-      </div>
-      <div className="CTA">
-        <button className="signup" onClick={openModal}>
-          Inscreva-se
-        </button>
-        <Modal
-          className="modal"
-          overlayClassName="Overlay"
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          ariaHideApp={false}
-        >
-          {loading && <LoadingComponent />}          
-          <div className="modalContainer">
-            <h3 className="loginHeader">Inscreva-se para o Evento</h3>
-            <p className="newCustomer">
-              13 de Dezembro  aguarde...!
-            </p>
-            <hr />
-            {error && <p style={{ color: "white", fontWeight: "bolder" }} className="errorMessage">{error}</p>}
-            <form className="loginForm" onSubmit={handleSubmit}>
-              <label>Casal</label> <br />
-              <input
-                type="text"
-                id="homem"
-                value={homem}
-                placeholder="Homem..."
-                required
-                onChange={(e) => setHomem(e.target.value)}
-              />
-              <input
-                type="text"
-                id="mulher"
-                value={mulher}
-                placeholder="Mulher..."
-                required
-                onChange={(e) => setMulher(e.target.value)}
-              />
-              <label>Whatsapp</label> <br />
-              <IMaskInput
-                mask="(00) 00000-0000"
-                value={whatsapp}
-                placeholder="(00) 00000-0000"
-                onChange={(e) => setWhatsapp(e.target.value)}
-              />
+    <>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
 
-              <br />
-              <label>Igreja / Congregação</label> <br />
-              <input
-                type="text"
-                id="igreja"
-                value={igreja}
-                placeholder="Onde congrega"
-                required
-                onChange={(e) => setIgreja(e.target.value)}
-              />
-              <button
-                type="submit"
-                disabled={!homem || !mulher || !whatsapp || !igreja}
+      <div className="headerContainer">
+        <div className="logoContainer">
+          <Link href="/">
+            <img src="/logo.png" className="logo" alt="" />
+          </Link>
+        </div>
+        <div className="CTA">
+          <button className="signup" onClick={openModal}>
+            Inscreva-se
+          </button>
+          <Modal
+            className="modal"
+            overlayClassName="Overlay"
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            ariaHideApp={false}
+          >
+            {loading && <LoadingComponent />}
+            <div className="modalContainer">
+              <h3 className="loginHeader">Inscreva-se para o Evento</h3>
+              <p className="newCustomer">
+                13 de Dezembro  aguarde...!
+              </p>
+              <hr />
+              {error && <p style={{ color: "white", fontWeight: "bolder" }} className="errorMessage">{error}</p>}
+              <form className="loginForm" onSubmit={handleSubmit}>
+                <label>Casal</label> <br />
+                <input
+                  type="text"
+                  id="homem"
+                  value={homem}
+                  placeholder="Homem..."
+                  required
+                  onChange={(e) => setHomem(e.target.value)}
+                />
+                <input
+                  type="text"
+                  id="mulher"
+                  value={mulher}
+                  placeholder="Mulher..."
+                  required
+                  onChange={(e) => setMulher(e.target.value)}
+                />
+                <label>Whatsapp</label> <br />
+                <IMaskInput
+                  mask="(00) 00000-0000"
+                  value={whatsapp}
+                  placeholder="(00) 00000-0000"
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                />
+
+                <br />
+                <label>Igreja / Congregação</label> <br />
+                <input
+                  type="text"
+                  id="igreja"
+                  value={igreja}
+                  placeholder="Onde congrega"
+                  required
+                  onChange={(e) => setIgreja(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  disabled={!homem || !mulher || !whatsapp || !igreja}
+                  style={{
+                    opacity: !homem || !mulher || !whatsapp || !igreja ? 0.6 : 1,
+                    cursor: !homem || !mulher || !whatsapp || !igreja ? "not-allowed" : "pointer",
+                  }}>
+                  Enviar
+                </button>
+              </form>
+              <div className="closeModal" onClick={closeModal}>
+                &#x2715;
+              </div>
+            </div>
+          </Modal>
+
+          <Modal
+            className="modal"
+            isOpen={isOpen}
+            onRequestClose={toggleModal}
+            ariaHideApp={false}
+          >
+            <div className="modalContainer">
+              <b>CONFIRMAÇÃO DA INSCRIÇÃO SOMENTE APÓS O PAGAMENTO, E ENVIO DO COMPROVANTE!</b>
+              <hr />
+
+              <img src="/taxaInscricao.jpg" className="pixTaxa" alt="" />
+
+              {/* <ToastContainer
+                position="bottom-left"
+                autoClose={2500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              /> */}
+
+              <hr />
+
+              <br></br>
+
+              <div className="divPix" onClick={toastSuccess}>
+                <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPagamento) }} />
+                <p>Pix Copia e Cola: <b> (62) 99252-9127 | LIDIANE SILVA | CAIXA ECONOMICA</b></p>
+              </div>
+
+              <br></br>
+
+              <textarea
+                id="name"
                 style={{
-                  opacity: !homem || !mulher || !whatsapp || !igreja ? 0.6 : 1,
-                  cursor: !homem || !mulher || !whatsapp || !igreja ? "not-allowed" : "pointer",
-                }}>
-                Enviar
-              </button>
-            </form>
-            <div className="closeModal" onClick={closeModal}>
-              &#x2715;
+                  width: '95%',
+                  height: '70px',
+                  border: '1px solid #ccc',
+                  borderRadius: '4px',
+                  textAlign: 'center',
+                  padding: '3px'
+                }}
+                defaultValue='00020126360014br.gov.bcb.pix0114+55629925291275204000053039865802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CasaEdificada630482B9'
+              />
+
+              <br></br>
+
             </div>
-            {registerMessage && (
-              <p className="welcomeMessage">{registerMessage}</p>
-            )}
-
-            {successMessage && (
-              <p className="welcomeMessage">{successMessage}</p>
-            )}
-          </div>
-        </Modal>
-
-        <Modal
-          className="modal"
-          isOpen={isOpen}
-          onRequestClose={toggleModal}
-          ariaHideApp={false}
-        >
-          <div className="modalContainer">
-            <b>CONFIRMAÇÃO DA INSCRIÇÃO SOMENTE APÓS O PAGAMENTO, E ENVIO DO COMPROVANTE!</b>
-            <hr />
-            
-            <img src="/taxaInscricao.jpg" className="pixTaxa" alt="" />
-
-            <ToastContainer
-              position="bottom-left"
-              autoClose={2500}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-
-            <hr />
-             
-            <br></br>
-
-            <div className="divPix" onClick={toastSuccess}>
-              <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPagamento) }} />
-              <p>Pix Copia e Cola: <b> (62) 99252-9127 | LIDIANE SILVA | CAIXA ECONOMICA</b></p>
-            </div>
-
-            <br></br>
-
-            <textarea
-              id="name"
-              style={{
-                width: '95%',
-                height: '70px',
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                textAlign: 'center',
-                padding: '3px'
-              }}
-              defaultValue='00020126360014br.gov.bcb.pix0114+55629925291275204000053039865802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CasaEdificada630482B9'
-            />
-
-            <br></br>
-
-          </div>
-        </Modal>
+          </Modal>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
