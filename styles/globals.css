@@ -24,10 +24,6 @@ a {
   overflow: hidden;
 }
 
-.homeContainer {
-  width: 100%;
-}
-
 .headerContainer {
   width: 100%;
   height: 70px;
@@ -53,12 +49,6 @@ a {
   right: 0;
   bottom: 0;
   background-color: rgba(255, 255, 255, 0);
-}
-
-.modalContainer {
-  margin: 0;
-  text-align: center;
-  padding-top: 30px;
 }
 
 .input-wrapper {
@@ -94,6 +84,12 @@ a {
   font-weight: 500;
 }
 
+.modalContainer {
+  margin: 0;
+  text-align: center;
+  padding-top: 30px;
+}
+
 .modalContainer hr {
   border-top: 1px solid rgba(154, 154, 154, 0.37);
 }
@@ -104,21 +100,12 @@ a {
   cursor: pointer;
 }
 
-.forgotPassword {
-  color: #cf4e4e;
-  text-align: center;
-  font-weight: 700;
-  font-size: 12px;
-
-}
-
 .closeModal {
   position: absolute;
   top: 10px;
   right: 15px;
   font-size: 20px;
   cursor: pointer;
-
 }
 
 .loginForm {
@@ -131,6 +118,7 @@ a {
 .loginForm label {
   font-size: 14px;
 }
+
 .loginForm input {
   width: 100%;
   height: 35px;
@@ -157,6 +145,7 @@ a {
   display: flex;
   align-items: center;
 }
+
 .logo {
   width: 200px;
   padding-left: 15px;
@@ -172,6 +161,7 @@ a {
   padding-bottom: 15px;
   padding-right: 15px;
 }
+
 .divPix {
   display: contents;
 }
@@ -184,13 +174,6 @@ a {
   display: flex;
   gap: 5px;
   padding-right: 15px;
-  
-}
-
-.welcomeMessage {
-  font-size: 14px;
-  font-weight: 600;
-  padding-bottom: 20px;
 }
 
 .errorMessage {
@@ -221,7 +204,6 @@ a {
   cursor: pointer
 }
 
-
 .navContainer {
   height: 60px;
   width: 100%;
@@ -239,7 +221,6 @@ a {
   justify-content: center;
   color: #bdbcbc;
   font-weight: 700;
-  
 }
 
 .navItem {
@@ -258,6 +239,7 @@ a {
   color: #fff;
   border-bottom: #cf4e4e 4px solid;
 }
+
 .active2 {
   width: 120px;
   display: grid;
@@ -266,6 +248,7 @@ a {
   color: #fff;
   border-bottom: rgb(202, 36, 36) 4px solid;
 }
+
 .active3 {
   width: 120px;
   display: grid;
@@ -274,6 +257,7 @@ a {
   color: #fff;
   border-bottom: rgb(0, 170, 204) 4px solid;
 }
+
 .active4 {
   display: grid;
   align-items: center;
@@ -281,63 +265,13 @@ a {
   color: #fff;
   border-bottom: rgb(179, 17, 77) 4px solid;
 }
+
 .active5 {
   display: grid;
   align-items: center;
   text-align: center;
   color: #fff;
   border-bottom: rgb(132, 52, 146) 4px solid;
-}
-
-.contentContainer {
-  background-color: #bdbcbc;
-  width: 100%;
-  height: 100%;
-}
-
-.coverImage {
-  position: fixed;
-  right: 0;
-  width: 40%;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.dummyText {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: #e9eae9;
-}
-
-@media (max-width: 1200px) {
-  .dummyText {
-    left: 5%;
-  }
-}
-
-.dummyText p {
-  font-size: 32px;
-  font-weight: 800;
-}
-.dummyText span {
-  color: #cf4e4e;
-}
-.dummyText h1 {
-  font-size: 82px;
-  font-weight: 800;
-  color: #cf4e4e;
-}
-
-
-
-.dummyPage {
-  width: 60%;
-  margin: 10% auto;
-  color: #e9eae9;
 }
 
 .footerContainer {
@@ -349,7 +283,7 @@ a {
   background-color: #0d0e12dc;
 }
 
-.footerContent{
+.footerContent {
   width: 80%;
   margin: auto;
   color: #fff;
@@ -389,6 +323,7 @@ a {
   padding: 10px 12px;
   cursor: pointer
 }
+
 .ctaButton3 {
   width: 300px;
   background-color: rgb(0, 170, 204);
@@ -396,28 +331,6 @@ a {
   font-weight: 800;
   font-size: 16px;
   border: rgb(0, 170, 204) solid;
-  border-radius: 2px;
-  padding: 10px 12px;
-  cursor: pointer
-}
-.ctaButton4 {
-  width: 300px;
-  background-color: rgb(179, 17, 77);
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-  border: rgb(179, 17, 77) solid;
-  border-radius: 2px;
-  padding: 10px 12px;
-  cursor: pointer
-}
-.ctaButton5 {
-  width: 300px;
-  background-color: rgb(132, 52, 146);
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-  border: rgb(132, 52, 146) solid;
   border-radius: 2px;
   padding: 10px 12px;
   cursor: pointer
@@ -437,21 +350,16 @@ a {
 }
 
 @media (max-width: 900px) {
-  .coverImage {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
   .modal {
     top: 30%;
     left: 20%;
     right: 20%;
     background-color: rgb(255, 255, 255);
-}
+  }
 
-.dummyText {
-  display: none;
-}
+  .dummyText {
+    display: none;
+  }
 }
 
 @media (max-width: 716px) {
@@ -459,44 +367,44 @@ a {
     width: 100%;
     font-size: 12px;
   }
+
   .login {
     font-size: 12px;
     width: 65px;
     padding: 0;
   }
+
   .signup {
     font-size: 12px;
     width: 75px;
     padding: 6px 0;
   }
+
   .logo {
     width: 150px;
   }
+
   .headerContainer {
     height: 55px;
   }
+
   .navContainer {
     height: 45px;
   }
+
   .footerContent button {
     width: 95%;
-  }
-  .dummyPage {
-    width: 60%;
-    margin: 20% auto;
-  }
-  
+  } 
 }
 
 @media (max-width: 540px) {
   .modal {
     left: 0;
     right: 0;
-}
+  }
 }
 
 @media (max-width: 425px) {
-  
   .logo {
     width: 120px;
   }

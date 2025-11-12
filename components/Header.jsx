@@ -8,6 +8,14 @@ import { IMaskInput } from "react-imask";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+`;
+
 const Header = ({ openModal, closeModal, modalIsOpen }) => {
   // set state to open/close modal
   const [isOpen, setIsOpen] = useState(false);
@@ -23,14 +31,6 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
   }
 
   const toastSuccess = () => toast.success('Pix cópiado com sucesso!');
-
-  const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-  `
 
   function LoadingComponent() {
     return <Container className="App">
@@ -261,18 +261,6 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
               <hr />
 
               <img src="/taxaInscricao.jpg" className="pixTaxa" alt="" />
-
-              {/* <ToastContainer
-                position="bottom-left"
-                autoClose={2500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              /> */}
 
               <hr />
 
