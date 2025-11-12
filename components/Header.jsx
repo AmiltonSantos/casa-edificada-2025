@@ -115,10 +115,10 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
         },
         body: JSON.stringify({
           id: "=ROW()-1",
-          homem,
-          mulher,
+          homem: homem.toUpperCase(),
+          mulher: mulher.toUpperCase(),
           whatsapp,
-          igreja,
+          igreja: igreja.toUpperCase(),
           datainscricao: `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`
         }),
       });
