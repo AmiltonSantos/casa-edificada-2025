@@ -529,3 +529,18 @@ a {
 .z-10 {
   z-index: 10;
 }
+
+.myContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 20px); /* 10px de cada lado */
+  max-width: 600px;         /* opcional: limite máximo */
+  color: white;
+  font-size: 25px;
+  background-color: rgba(154, 106, 106, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}

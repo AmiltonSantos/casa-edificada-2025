@@ -9,6 +9,9 @@ const Pix = () => {
 
   return (
     <div className="pixContainer">
+      <b>CONFIRMAÇÃO DA INSCRIÇÃO SOMENTE APÓS O PAGAMENTO, E ENVIO DO COMPROVANTE!</b>
+      <hr />
+      
       <img src="/taxaInscricao.jpg" className="pixTaxa" alt="" />
 
       <ToastContainer

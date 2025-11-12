@@ -12,8 +12,8 @@ const Content = () => {
         className="absolute w-full h-full object-cover"
       />
 
-      <div className="relative z-10">
-        {/* Conteúdo da página por cima do vídeo */}
+      <div className="myContent">
+        <b>A CONFIRMAÇÃO DA SUA INSCRIÇÃO SOMENTE APÓS O PAGAMENTO, E ENVIO DO COMPROVANTE NO WHATSAPP: (62) 99452-9444</b>
       </div>
     </div>
   );
