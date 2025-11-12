@@ -60,7 +60,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     event.preventDefault();
 
     // Validar Whatsa
-    if (whatsapp.length < 14) {
+    if (whatsapp.length <= 14) {
       setError("Erro! São 11 números o WhatsApp");
       setWhatsapp("");
       return;
@@ -111,7 +111,8 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
       const existing = await checkResponse.json();
 
       if (existing.length > 0) {
-        setError("ESTE NÚMERO DE WHATSAPP JÁ ESTÁ CADASTRADO!");
+        setError("Erro! SEU CADASTRO JÁ FOI FEITO USANDO ESSE NÚMERO DE WHATSAPP!");
+        setWhatsapp("");
         setLoading(false);
         return; // interrompe o fluxo
       }
@@ -226,7 +227,15 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
                 required
                 onChange={(e) => setIgreja(e.target.value)}
               />
-              <button type="submit">Enviar</button>
+              <button
+                type="submit"
+                disabled={!homem || !mulher || !whatsapp || !igreja}
+                style={{
+                  opacity: !homem || !mulher || !whatsapp || !igreja ? 0.6 : 1,
+                  cursor: !homem || !mulher || !whatsapp || !igreja ? "not-allowed" : "pointer",
+                }}>
+                Enviar
+              </button>
             </form>
             <div className="closeModal" onClick={closeModal}>
               &#x2715;
