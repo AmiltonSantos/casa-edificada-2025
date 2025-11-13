@@ -107,7 +107,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
       const existing = await checkResponse.json();
 
       if (existing.length > 0) {
-        setError("Erro! SEU CADASTRO JÁ FOI FEITO USANDO ESSE NÚMERO DE WHATSAPP!");
+        setError("Atenção! CADASTRO JÁ REALIZADO COM ESTE NÚMERO!");
         setWhatsapp("");
         setLoading(false);
         return; // interrompe o fluxo
