@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Pix = () => {
-  const numeroPagamento = '00020126360014br.gov.bcb.pix0114+55629925291275204000053039865802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CasaEdificada630482B9';
+  const numeroPagamento = '00020126360014br.gov.bcb.pix0114+55629925291275204000053039865406150.005802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CASAEDIFICADA63047BE2';
 
   const toastSuccess = () => toast.success('Pix cópiado com sucesso!');
 
@@ -47,7 +47,7 @@ const Pix = () => {
           textAlign: 'center',
           padding: '3px'
         }}
-        defaultValue='00020126360014br.gov.bcb.pix0114+55629925291275204000053039865802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CasaEdificada630482B9'
+        defaultValue='00020126360014br.gov.bcb.pix0114+55629925291275204000053039865406150.005802BR5913LIDIANE SILVA6015APARECIDA DE GO62170513CASAEDIFICADA63047BE2'
       />
 
       <br></br>
